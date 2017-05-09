@@ -1,0 +1,16 @@
+// Place all the styles related to the Course controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.course-card {
+	position:relative;
+	padding:20px 15px;
+	border:1px solid #dadada;
+	margin:10px 0;
+	&:first-child {
+		margin-top:0;
+	}
+	h3, p {
+		margin:5px 0;
+	}
+}

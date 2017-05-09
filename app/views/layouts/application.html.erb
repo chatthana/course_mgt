@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CourseManager</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<div class="navbar navbar-light navbar-static-top" style="border-bottom:1px solid #dadada;">
+  		<div class="container">
+	  		<div class="navbar-header">
+	  			<a href="" class="navbar-brand">COURSE MANAGEMENT</a>
+	  		</div>
+        <div class="navbar-collapse">
+          <ul class="navbar-nav nav navbar-right">
+            <li><a href="">Home</a></li>
+            <% if can? :manage, Course %>
+              <li><a href="">Manage</a></li>
+            <% end %>
+            <li><a href="">Book Course</a></li>
+            <li><a href="">Contact Helpdesk</a></li>
+          </ul>
+        </div>
+	  	</div>
+  	</div>
+    <%= yield %>
+  </body>
+</html>

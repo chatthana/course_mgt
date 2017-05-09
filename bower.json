@@ -1,0 +1,21 @@
+{
+  "name": "course_manager",
+  "authors": [
+    "Chatthana Janethanakarn <chattana.j@gmail.com>"
+  ],
+  "description": "Course Manager",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/assets/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

@@ -1,0 +1,44 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-3">
+			<ul class="nav nav-pills nav-stacked">
+				<li class="active"><%= link_to "Management", course_view_path('management') %></li>
+				<li><a href="">Marketing</a></li>
+				<li><a href="">Development</a></li>
+			</ul>
+		</div>
+		<div class="col-lg-9">
+			<% if @category.count > 1 %>
+				<% category.each do |cat| %>
+					<% cat.courses.each do |course| %>
+						<div class="row course-card">
+							<div class="col-lg-12">
+								<p><%= course.course_id %></p>
+								<h3><%= course.course_name %></h3>
+								<p><%= course.course_description %></p>
+								<div class="button-container">
+									<%= link_to "View Details", 'details', :class => 'btn btn-primary btn-sm' %>
+									<%= link_to "Book this class", 'book', :class => 'btn btn-success btn-sm' %>
+								</div>
+							</div>
+						</div>
+					<% end %>
+				<% end %>
+			<% else %>
+				<% @category.courses.each do |course| %>
+					<div class="row course-card">
+						<div class="col-lg-12">
+							<p><%= course.course_id %></p>
+							<h3><%= course.course_name %></h3>
+							<p><%= course.course_description %></p>
+							<div class="button-container">
+								<%= link_to "View Details", 'details', :class => 'btn btn-primary btn-sm' %>
+								<%= link_to "Book this class", 'book', :class => 'btn btn-success btn-sm' %>
+							</div>
+						</div>
+					</div>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,33 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-3">
+			<ul class="nav nav-pills nav-stacked">
+				<% @categories.each do |category| %>
+					<li><a href=""><%= category.name %></a></li>
+				<% end %>
+			</ul>
+		</div>
+		<div class="col-lg-9">
+			<div>
+				<%= form_for :search, url: {action: 'search'}, remote: true do |f| %>
+					<div>
+						<%= f.text_field 'search_title', {class: 'form-control', placeholder: 'Search Course'} %>
+					</div>
+				<% end %>
+			</div>
+			<% @courses.each do |course| %>
+				<div class="course-card">
+					<!-- <div class="col-lg-12"> -->
+					<p><%= course.course_id %></p>
+					<h3><%= course.course_name %></h3>
+					<p><%= course.course_description %></p>
+					<div class="button-container">
+						<%= link_to "View Details", 'details', :class => 'btn btn-primary btn-sm' %>
+						<%= link_to "Book this class", 'book', :class => 'btn btn-success btn-sm' %>
+					</div>
+					<!-- </div> -->
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

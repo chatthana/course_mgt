@@ -6,9 +6,14 @@ Rails.application.routes.draw do
   get 'session/create'
   post 'session/authenticate'
 
-  get 'course/index'
-  get 'course/test'
-  get 'course/view/(:catname)', to: 'course#view', as: 'course_view'
+  resources :courses
+  get 'courses/search'
+
+  # get 'course/index'
+  # get 'course/test'
+  # get 'course/view/:id', to: 'course#view', as: 'course_view'
+  # get 'course/category/:category', to: 'course#category'
+  # get 'course/new'
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

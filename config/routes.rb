@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
 
-  root 'course#index'
+  root 'courses#index'
 
   get 'site/index'
   get 'session/create'
   post 'session/authenticate'
 
   resources :courses
-  get 'courses/search'
+  post 'courses/search'
+  # get 'courses/search'
 
   # get 'course/index'
   # get 'course/test'

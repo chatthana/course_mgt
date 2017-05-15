@@ -38,7 +38,29 @@ class CoursesController < ApplicationController
 	end
 
 	def search
+		
+		courses = Course.find_by('course_date', '2017-06-01')
+		courses.find_by('course_name', 'Operation Mangement')
+		render json: courses
+		# if !params[:search][:title_search].empty?
+		# 	c += 'course_name LIKE \'%' + params[:search][:title_search] + '%\''
+		# end
 
+		# if !params[:search][:search_course_date].empty?
+		# 	c += ' AND course_date = \'' + params[:search][:search_course_date] + '\''
+		# end
+
+		# if !params[:search][:search_start_time].empty?
+		# 	c += ' AND course_start_time = \'' + params[:search][:search_start_time] + '\''
+		# end
+
+		# @courses = Course.where(c)
+
+		# respond_to do |format|
+		# 	format.js
+		# 	format.html
+		# end
+		
 	end
 
 	private

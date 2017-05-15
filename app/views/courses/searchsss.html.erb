@@ -1,0 +1,36 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<%= form_for :search, url: {action: 'search'} do |f| %>
+				<div class="row" style="margin:10px -15px;">
+					<div class="col-lg-12">
+						<%= f.text_field 'title_search', {class: 'form-control', placeholder: 'Course Search'} %>
+					</div>
+				</div>
+				<div class="row" style="margin:10px -15px;">
+					<div class="col-lg-6">
+						<%= f.text_field 'search_start_time', {class: 'form-control', placeholder: 'Start time e.g. 11:00:00'} %>
+					</div>
+					<div class="col-lg-6">
+						<%= f.submit "Search Now", {class: 'btn btn-primary'} %>
+					</div>
+				</div>
+
+			<% end %>
+				
+			<% @courses.each do |course| %>
+				<div class="course-card">
+					<!-- <div class="col-lg-12"> -->
+					<p><%= course.course_id %></p>
+					<h3><%= course.course_name %></h3>
+					<p><%= course.course_description %></p>
+					<div class="button-container">
+						<%= link_to "View Details", 'details', :class => 'btn btn-primary btn-sm' %>
+						<%= link_to "Book this class", 'book', :class => 'btn btn-success btn-sm' %>
+					</div>
+					<!-- </div> -->
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

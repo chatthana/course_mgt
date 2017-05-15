@@ -17,7 +17,7 @@
           <ul class="navbar-nav nav navbar-right">
             <li><a href="">Home</a></li>
             <% if can? :manage, Course %>
-              <li><a href="">Manage</a></li>
+              <li><%= link_to "Manage", {action:'new'} %></li>
             <% end %>
             <li><a href="">Book Course</a></li>
             <li><a href="">Contact Helpdesk</a></li>

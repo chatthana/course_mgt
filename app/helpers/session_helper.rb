@@ -15,4 +15,7 @@ module SessionHelper
 	def the_ability
 		@current_ability ||= Ability.new(current_user)
 	end
+	def is_admin?
+		current_user.admin?
+	end
 end

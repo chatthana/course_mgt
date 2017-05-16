@@ -1,8 +1,10 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-6" style="margin:0 auto; float:none;">
-			<div id="notification-area"></div>
-			<%= form_for @user, remote: true do |f| %>
+			<div class="alert alert-warning">
+				<strong>Note:</strong> Only instructor & administrator can create a new course
+			</div>
+			<%= form_for @user, url: {action:'editprofile'}, method: :put, remote: true do |f| %>
 				<div class="form-group">
 					<%= f.label :firstname %>
 					<%= f.text_field :firstname, {class:'form-control'} %>
@@ -21,7 +23,7 @@
 				</div>
 				<div class="form-group">
 					<%= f.label :gender %>
-					<%= f.select :gender, options_for_select([['Male', 'male'], ['Female', 'female'], ['None', 'none']]), {}, {class:'form-control'} %>
+					<%= f.text_field :gender, {class:'form-control'} %>
 				</div>
 				<%= f.submit "Create new course", {class:'btn btn-primary btn-block'} %>
 			<% end %>

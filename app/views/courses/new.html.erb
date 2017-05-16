@@ -4,6 +4,9 @@
 			<div class="alert alert-warning">
 				<strong>Note:</strong> Only instructor & administrator can create a new course
 			</div>
+			<div id="notification-area">
+
+			</div>
 			<%= form_for @course, url: courses_path, remote: true do |f| %>
 				<div class="form-group">
 					<%= f.label :course_id %>

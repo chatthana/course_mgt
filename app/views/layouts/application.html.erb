@@ -21,7 +21,7 @@
             <% end %>
             <% if is_login? %>
               <li><%= link_to "Edit Profile", edit_user_path(:id => current_user.id) %></li>
-              <li><%= link_to "Logout", {controller: 'session', action:'logout'} %></li>
+              <li><%= link_to "Logout (" + current_user.username + ")", {controller: 'session', action:'logout'} %></li>
             <% end %>
           </ul>
         </div>

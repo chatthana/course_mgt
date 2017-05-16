@@ -1,6 +1,15 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-3">
+			<div class="profile-box">
+				<div class="profile-img-container">
+					<div class="real-container">
+						<i class="fa fa-user fa-3x"></i>
+					</div>
+				</div>
+				<h4><strong><%= current_user.firstname + ' ' + current_user.lastname %></strong></h4>
+				<p><% if is_admin? %> Instructor <% else %> Student <% end %></p>
+			</div>
 			<h3 style="padding-bottom:10px; border-bottom:1px solid #515151;">Categories</h3>
 			<ul class="nav nav-pills nav-stacked">
 				<% @categories.each do |category| %>

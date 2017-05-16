@@ -4,7 +4,7 @@
 			<h3 style="padding-bottom:10px; border-bottom:1px solid #515151;">Categories</h3>
 			<ul class="nav nav-pills nav-stacked">
 				<% @categories.each do |category| %>
-					<li><a href=""><%= category.name %></a></li>
+					<li><%= link_to category.name, course_category_path(category.id), remote:true %></li>
 				<% end %>
 			</ul>
 		</div>
@@ -38,8 +38,8 @@
 						<p style="font-size:0.85em;">Date : <%= course.course_date.strftime('%A, %B %d, %Y') %></p>
 						<p style="font-size:0.85em;">Time : <%= course.course_start_time.strftime('%I:%M %P') %> - <%= course.course_end_time.strftime('%I:%M %P') %></p>
 						<div class="button-container">
-							<%= link_to "View Details", 'details', :class => 'btn btn-primary btn-sm' %>
-							<%= link_to "Book this class", 'book', :class => 'btn btn-success btn-sm' %>
+							<%= link_to "View Details", '#', :class => 'btn btn-primary btn-sm' %>
+							<%= link_to "Book this class", '#', :class => 'btn btn-success btn-sm' %>
 						</div>
 						<!-- </div> -->
 					</div>

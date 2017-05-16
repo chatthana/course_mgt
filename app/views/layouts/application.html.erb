@@ -11,17 +11,17 @@
   	<div class="navbar navbar-inverse navbar-static-top" style="border-bottom:1px solid #dadada;">
   		<div class="container">
 	  		<div class="navbar-header">
-	  			<a href="" class="navbar-brand">COURSE MANAGEMENT</a>
+	  		 <%= link_to "COURSE MANAGER", root_url, {class: 'navbar-brand'} %>
 	  		</div>
         <div class="navbar-collapse">
           <ul class="navbar-nav nav navbar-right">
-            <li><a href="">Home</a></li>
+            <li><%= link_to "Home", root_url %></li>
             <% if can? :manage, Course %>
-              <li><%= link_to "Manage", {controller: 'courses', action:'new'} %></li>
+              <li><%= link_to "Create New Course", {controller: 'courses', action:'new'} %></li>
             <% end %>
             <% if is_login? %>
+              <li><%= link_to "Edit Profile", edit_user_path(:id => current_user.id) %></li>
               <li><%= link_to "Logout", {controller: 'session', action:'logout'} %></li>
-              <li><%= link_to "Edit Profile", {controller: 'session', action:'editprofile'} %></li>
             <% end %>
           </ul>
         </div>

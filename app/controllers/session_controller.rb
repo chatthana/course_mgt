@@ -13,14 +13,6 @@ class SessionController < ApplicationController
     redirect_to root_url
   end
 
-  def updateprofile
-    @user = User.find_by_id(current_user.id)
-  end
-
-  def editprofile
-    render plain: 'FUCKER'
-  end
-
   def authenticate
   	user = User.where('username = ? AND password = ?', params[:session][:email], Digest::SHA1.hexdigest(params[:session][:password])).first
   	if !user.nil?

@@ -21,6 +21,22 @@
 					<%= f.label :course_date %>
 					<%= f.text_field :course_date, {class:'form-control', placeholder: 'yyyy-mm-dd (e.g. 2017-01-01)'} %>
 				</div>
+				<!-- <div class="form-group"> -->
+				<div class="row">
+					<div class="col-lg-8">
+						<div class="form-group">
+							<%= fields_for :category do |sub| %>
+								<%=  sub.label 'category' %>
+								<%= sub.collection_select 'category', CourseCategory.all, :id, :name, {}, {:class => 'form-control'}%>
+							<% end %>
+						</div>
+					</div>
+					<div class="col-lg-4" style="padding:25px 0;">
+						<a href="#" id="adderer" class="btn btn-info">Add new category</a>
+					</div>
+					<!-- <div class="col-lg-4"></div> -->
+				</div>
+				<!-- </div> -->
 				<div class="form-group">
 					<%= f.label :course_start_time %>
 					<%= f.text_field :course_start_time, {class:'form-control', placeholder: 'hh:mm:ss (e.g. 12:00:00)'} %>
@@ -29,8 +45,47 @@
 					<%= f.label :course_end_time %>
 					<%= f.text_field :course_end_time, {class:'form-control', placeholder: 'hh:mm:ss (e.g. 12:00:00)'} %>
 				</div>
+				<div class="form-group">
+					<%= f.label :max_students %>
+					<%= f.text_field :max_students, {class:'form-control', placeholder: 'Number Only'} %>
+				</div>
 				<%= f.submit "Create new course", {class:'btn btn-primary btn-block'} %>
 			<% end %>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" id="category-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-sm" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3 class="modal-title">New Category</h3>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form>
+					<div class="form-group">
+						<label for="category_name">Name</label>
+						<input type="text" class="form-control" name="category_name" />
+					</div>
+					<div class="form-group">
+						<label for="category_description">Name</label>
+						<textarea class="form-control" name="category_description"></textarea>
+					</div>
+					<div class="form-group">
+						<label for="category_name">Default Status</label>
+						<select name="category_default_status" class="form-control">
+							<option value="1">Active</option>
+							<option value="0">Inactive</option>
+						</select>
+					</div>
+					<div>
+						<button type="button" id="create-new-category" class="btn btn-success">Create</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 </div>

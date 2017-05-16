@@ -4,8 +4,8 @@ class Ability
 
 
   def initialize(user)
-    alias_action :index, :show, :test, :category, :to => :read
-    alias_action :edit, :update, :to => :update
+
+    alias_action :category, :search, to: :read
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
@@ -39,6 +39,7 @@ class Ability
         can :manage, :all
     else
         can :read, :all
+        can :manage, User
     end
 
   end

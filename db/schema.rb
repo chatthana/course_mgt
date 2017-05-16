@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170515172946) do
+ActiveRecord::Schema.define(version: 20170516035016) do
 
   create_table "course_categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",        limit: 64
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 20170515172946) do
     t.string   "firstname"
     t.string   "lastname"
     t.string   "nickname"
-    t.datetime "birthdate"
+    t.date     "birthdate"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.integer  "admin",      limit: 1

@@ -11,16 +11,10 @@ class CoursesController < ApplicationController
 		
 	end
 
-	def view
-		if params['catname'].nil?
-			@category = CourseCategory.all
-		else
-			@category = CourseCategory.find_by(name: params['catname'])
-		end
-	end
-
 	def category
-		@category = CourseCategory.find_by(name:params[:category])
+		category = CourseCategory.find(params[:id])
+		@courses = category.courses
+		# render json: category
 	end
 
 	def new
@@ -28,11 +22,22 @@ class CoursesController < ApplicationController
 	end
 
 	def create
-		@course = Course.new(course_params)
-		@course.save
+		course = Course.new(course_params)
+		course.save
+
+		category = CourseCategory.find_by(:id => params[:category][:category])
+
+		mapper = CourseCategoryMapper.create(course_id: course.id, category_id: category.id)
+		mapper.save
+
 		respond_to do |format|
 			format.js
 		end
+	end
+
+	def createcategory
+		category = CourseCategory.create(name: params[:name], description: params[:description], active: params[:default_status])
+		render json: category
 	end
 
 	def search

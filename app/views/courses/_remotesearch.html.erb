@@ -6,6 +6,8 @@
 				<p><%= course.course_id %></p>
 				<h3><%= course.course_name %></h3>
 				<p><%= course.course_description %></p>
+				<p style="font-size:0.85em;">Date : <%= course.course_date.strftime('%A, %B %d, %Y') %></p>
+				<p style="font-size:0.85em;">Time : <%= course.course_start_time.strftime('%I:%M %P') %> - <%= course.course_end_time.strftime('%I:%M %P') %></p>
 				<div class="button-container">
 					<%= link_to "View Details", 'details', :class => 'btn btn-primary btn-sm' %>
 					<%= link_to "Book this class", 'book', :class => 'btn btn-success btn-sm' %>

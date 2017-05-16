@@ -20,8 +20,6 @@ class CoursesController < ApplicationController
 	end
 
 	def category
-		# category = CourseCategory.find(params['id'])
-		# render plain: params[:category]
 		@category = CourseCategory.find_by(name:params[:category])
 	end
 
@@ -39,27 +37,24 @@ class CoursesController < ApplicationController
 
 	def search
 		
-		courses = Course.find_by('course_date', '2017-06-01')
-		courses.find_by('course_name', 'Operation Mangement')
-		render json: courses
-		# if !params[:search][:title_search].empty?
-		# 	c += 'course_name LIKE \'%' + params[:search][:title_search] + '%\''
-		# end
+		@courses = Course.all
 
-		# if !params[:search][:search_course_date].empty?
-		# 	c += ' AND course_date = \'' + params[:search][:search_course_date] + '\''
-		# end
+		if !params[:search][:title_search].blank?
+			@courses = @courses.where('course_name LIKE ?', '%' + params[:search][:title_search] + '%')
+		end
 
-		# if !params[:search][:search_start_time].empty?
-		# 	c += ' AND course_start_time = \'' + params[:search][:search_start_time] + '\''
-		# end
+		if !params[:search][:search_course_date].blank?
+			@courses = @courses.where('course_date = ?', params[:search][:search_course_date])
+		end
 
-		# @courses = Course.where(c)
+		if !params[:search][:search_start_time].blank?
+			@courses = @courses.where('course_start_time = ?', params[:search][:search_start_time])
+		end
 
-		# respond_to do |format|
-		# 	format.js
-		# 	format.html
-		# end
+		respond_to do |format|
+			format.js
+			format.html
+		end
 		
 	end
 

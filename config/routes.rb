@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   get 'site/index'
   get 'session/create'
+  get 'session/logout'
+  get 'session/updateprofile'
+  put 'session/editprofile'
+  # post 'session/actualedit'
   post 'session/authenticate'
 
   resources :courses

@@ -7,8 +7,8 @@
 						<i class="fa fa-user fa-3x"></i>
 					</div>
 				</div>
-				<h4><strong><%= current_user.firstname + ' ' + current_user.lastname %></strong></h4>
-				<p><% if is_admin? %> Instructor <% else %> Student <% end %></p>
+				<h4 class="text-center"><strong><%= current_user.firstname + ' ' + current_user.lastname %></strong></h4>
+				<p class="text-center"><% if is_admin? %> Instructor <% else %> Student <% end %></p>
 			</div>
 			<h3 style="padding-bottom:10px; border-bottom:1px solid #515151;">Categories</h3>
 			<ul class="nav nav-pills nav-stacked">

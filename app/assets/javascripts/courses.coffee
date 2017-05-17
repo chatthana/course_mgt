@@ -18,5 +18,6 @@ $(document).on 'click', '#create-new-category', ->
 		success: (response) ->
 			$('select[name="category[category]"]').append $('<option>', {value: response.id, text: response.name})
 			$('select[name="category[category]"]').val response.id
+			$('.modal').modal('hide')
 
 		
